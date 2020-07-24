@@ -78,14 +78,14 @@ function AutoComplete({
       document.activeElement.blur();
       event.preventDefault();
     }
-  }, []);
+  }, [textInput.current]);
 
   useEffect(() => {
     document.addEventListener('keydown', focusSearch, false);
     return () => {
       document.removeEventListener('keydown', focusSearch, false);
     };
-  }, []);
+  }, [focusSearch]);
 
   useEffect(() => {
     if (isMobile) {
