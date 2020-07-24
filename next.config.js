@@ -112,66 +112,62 @@ const excelLessonsRedirect = [].concat(
 const nextConfig = {
   target: 'experimental-serverless-trace', // Not required for Vercel, but used by GitHub Actions
   pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx'],
-  experimental: {
-    modern: true,
-    optionalCatchAll: true,
-    rewrites() {
-      return [
-        {
-          source: '/feed.xml',
-          destination: '/_next/static/feed.xml'
-        }
-      ];
-    },
-    redirects() {
-      return [
-        {
-          source: '/learn{/}?',
-          permanent: true,
-          destination: '/learn/basics/create-nextjs-app'
-        },
-        ...navigateBetweenPagesLessonsRedirect,
-        ...apiRoutesLessonsRedirect,
-        ...basicsLessonsRedirect,
-        ...excelLessonsRedirect,
-        ...typeScriptLessonsRedirect,
-        {
-          source: '/features{/}?',
-          permanent: false,
-          destination: '/'
-        },
-        {
-          source: '/features/:path*',
-          permanent: false,
-          destination: '/'
-        },
-        {
-          source: '/features/ssr{/}?',
-          permanent: false,
-          destination: '/'
-        },
-        {
-          source: '/case-studies{/}?',
-          permanent: false,
-          destination: '/case-studies/hulu'
-        },
-        {
-          source: '/api{/}?',
-          permanent: false,
-          destination: '/docs/api-routes/introduction'
-        },
-        {
-          source: '/docs/api{/}?',
-          permanent: false,
-          destination: '/docs/api-routes/introduction'
-        },
-        {
-          source: '/discussions',
-          destination: 'https://github.com/vercel/next.js/discussions',
-          permanent: false
-        }
-      ];
-    }
+  rewrites() {
+    return [
+      {
+        source: '/feed.xml',
+        destination: '/_next/static/feed.xml'
+      }
+    ];
+  },
+  redirects() {
+    return [
+      {
+        source: '/learn{/}?',
+        permanent: true,
+        destination: '/learn/basics/create-nextjs-app'
+      },
+      ...navigateBetweenPagesLessonsRedirect,
+      ...apiRoutesLessonsRedirect,
+      ...basicsLessonsRedirect,
+      ...excelLessonsRedirect,
+      ...typeScriptLessonsRedirect,
+      {
+        source: '/features{/}?',
+        permanent: false,
+        destination: '/'
+      },
+      {
+        source: '/features/:path*',
+        permanent: false,
+        destination: '/'
+      },
+      {
+        source: '/features/ssr{/}?',
+        permanent: false,
+        destination: '/'
+      },
+      {
+        source: '/case-studies{/}?',
+        permanent: false,
+        destination: '/case-studies/hulu'
+      },
+      {
+        source: '/api{/}?',
+        permanent: false,
+        destination: '/docs/api-routes/introduction'
+      },
+      {
+        source: '/docs/api{/}?',
+        permanent: false,
+        destination: '/docs/api-routes/introduction'
+      },
+      {
+        source: '/discussions',
+        destination: 'https://github.com/vercel/next.js/discussions',
+        permanent: false
+      }
+    ];
   },
   webpack: (config, { dev, isServer }) => {
     if (!dev && isServer) {
